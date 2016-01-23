@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+/* GENERAL */
+body, html {
+  color: #000;
+  font-family: 'Helvetica',Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+body {
+  background: #fff;
+  border: none;
+  height: 100%;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  margin-top: 0;
+  width: 100%;
+}
+
+.container {
+  min-height:0px !important;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*
+------------------------------*/
+
+/* AUTHENTICATION */
+#authentication .container {
+  margin: 50px auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  width: 320px;
+  height: 280px;
+}
+
+#authentication footer {
+  display: none;
+}
+
+/* JUMBOTRON */
+.jumbotron {
+  background: #fff;
+}
+
+/* NAVIGATION */
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:active {
+  color: #000 !important;
+}
+
+/* FORMS */
+.simple_form label {
+  font-weight: 400;
+}

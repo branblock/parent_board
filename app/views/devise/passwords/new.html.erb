@@ -1,0 +1,22 @@
+<body id="authentication">
+  <div class="container">
+    <div class="row">
+
+      <p class="text-center"><%= link_to '<i class="fa fa-home"></i>&nbsp;Home'.html_safe, root_path %></p>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="text-center">Reset password</h4></div>
+          <div class="panel-body">
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <div class="form-inputs">
+              <%= f.error_notification %>
+              <%= f.input :email, required: true, autofocus: true %>
+              <%= f.button :button, '<i class="fa fa-envelope-o"></i>&nbsp;Send instructions'.html_safe, class: 'btn btn-success', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending..."} %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>

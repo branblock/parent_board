@@ -1,0 +1,28 @@
+<body id="authentication">
+  <div class="container">
+    <div class="row">
+
+      <p class="text-center"><%= link_to '<i class="fa fa-home"></i>&nbsp;Home'.html_safe, root_path %></p>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="text-center">Log in</h4></div>
+          <div class="panel-body">
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-inputs">
+                <%= f.error_notification %>
+                <%= f.input :login, placeholder: "username or email address", required: true, autofocus: true %>
+                <%= f.input :password, required: true %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                <%= f.button :button, '<i class="fa fa-sign-in"></i>&nbsp;Log in'.html_safe, class: 'btn btn-success', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."} %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      <p><%= link_to "I forgot my password", new_password_path(resource_name) %></p>
+      <p><%= link_to "I need account confirmation instructions", new_confirmation_path(resource_name) %></p>
+      <p><%= link_to "I need an account", new_registration_path(resource_name) %></p>
+
+    </div>
+  </div>
+</body>

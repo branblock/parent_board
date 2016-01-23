@@ -1,0 +1,22 @@
+<body id="authentication">
+  <div class="container">
+    <div class="row">
+
+      <p class="text-center"><%= link_to '<i class="fa fa-home"></i>&nbsp;Home'.html_safe, root_path %></p>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="text-center">Resend confirmation instructions</h4></div>
+          <div class="panel-body">
+          <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+            <%= f.full_error :confirmation_token %>
+            <div class="form-inputs">
+              <%= f.input :username, required: true, autofocus: true %>
+              <%= f.button :button, '<i class="fa fa-envelope-o"></i>&nbsp;Resend'.html_safe, class: 'btn btn-success', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Resending..."} %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>

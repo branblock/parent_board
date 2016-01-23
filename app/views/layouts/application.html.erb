@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LCS Parents Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+
+    <% if user_signed_in? %>
+      <%= render 'layouts/header' %>
+    <% end %>
+
+    <%= render 'layouts/messages' %>
+
+    <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+
+</html>
