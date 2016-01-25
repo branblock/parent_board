@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  time:
+    formats:
+      post_default: '%b. %d, %Y'

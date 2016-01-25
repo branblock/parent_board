@@ -1,0 +1,15 @@
+<body id="posts-show">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8">
+        <h4 id="title"><%= @post.title %></h4>
+        <p>by&nbsp;<%= link_to "#{@post.user.username}", user_path(@post.user) %>&nbsp;•&nbsp;Last updated&nbsp;<%= time_ago_in_words(@post.updated_at) %>&nbsp;ago</small></p>
+        <div id="posts-body">
+          <%= @post.body %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
