@@ -1,0 +1,25 @@
+<body id="posts-index">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4 id="title">All Posts</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <% @posts.each do |post| %>
+          <p>
+            <%= localize(post.updated_at, :format => :post_default) %>&nbsp;-&nbsp;<%= link_to post.title, post_path(post) %>
+            &nbsp;
+            <%= link_to 'Edit post', edit_post_path(post) %>
+            &nbsp;
+            <%= link_to 'Delete post', post, method: :delete, data: {confirm: "Are you sure?"} %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</body>

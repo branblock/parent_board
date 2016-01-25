@@ -18,32 +18,46 @@
 @import 'bootstrap';
 
 /* GENERAL */
-body, html {
+html, body {
   color: #000;
-  font-family: 'Helvetica',Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  height: 100%;
 }
 
 body {
-  background: #fff;
-  border: none;
-  height: 100%;
-  overflow-x: hidden;
-  padding-bottom: 20px;
-  margin-top: 0;
+  display: table;
   width: 100%;
 }
 
-.container {
-  min-height:0px !important;
-  margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 10px;
+.page-row {
+  background: #e7e7e7;
+  display: table-row;
+  height: 1px;
+}
+
+.page-row p {
+  font-size: 13px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.page-row-expanded { height: 100%; }
+
+#title {
+  padding-top: 20px;
 }
 
 /*
 ------------------------------*/
+
+/* ALERTS */
+.alert {
+  border-radius: 0;
+  text-align: center;
+}
+
+.close {
+  display: none;
+}
 
 /* AUTHENTICATION */
 #authentication .container {
@@ -59,17 +73,62 @@ body {
   display: none;
 }
 
+/* FORMS */
+.simple_form label {
+  font-weight: 400;
+}
+
 /* JUMBOTRON */
 .jumbotron {
   background: #fff;
 }
 
 /* NAVIGATION */
-.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:active {
-  color: #000 !important;
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
 }
 
-/* FORMS */
-.simple_form label {
-  font-weight: 400;
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:active {
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.navbar-nav {
+  padding-top: 2px;
+}
+
+/* POSTS-INDEX */
+#posts-index a {
+  color: #000;
+}
+
+#posts-index a:hover {
+  color: #337ab7;
+}
+
+/* POSTS-SHOW */
+#posts-body {
+  border-top: 1px solid #e7e7e7;
+  padding-top: 10px;
+}
+
+/* TERMS */
+#terms footer {
+  display: none;
+}
+
+/* WELCOME-INDEX */
+#welcome footer {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron h1, .jumbotron .h1 {
+    font-size: 50px;
+  }
+}
+
+#welcome-small {
+  font-size: 14px;
 }
