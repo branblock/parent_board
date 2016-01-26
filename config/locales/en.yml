@@ -25,4 +25,5 @@ en:
 en:
   time:
     formats:
+      comment_default: '%m.%d.%Y @ %I:%M %p'
       post_default: '%b. %d, %Y'

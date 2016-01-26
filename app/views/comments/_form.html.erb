@@ -1,0 +1,6 @@
+<p style="margin-top: 20px">
+  <%= simple_form_for [post, comment], remote: true do |f| %>
+    <%= f.input :body, as: :text, input_html: { rows: 3 }, placeholder: "What do you think?", label: false %>
+    <%= f.submit :Post, class: 'btn btn-success' %>
+  <% end %>
+</p>

@@ -2,11 +2,29 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-8">
+      <div class="col-md-12">
         <h4 id="title"><%= @post.title %></h4>
         <p>by&nbsp;<%= link_to "#{@post.user.username}", user_path(@post.user) %>&nbsp;•&nbsp;Last updated&nbsp;<%= time_ago_in_words(@post.updated_at) %>&nbsp;ago</small></p>
+        <p><i class="fa fa-tags"></i>&nbsp;
+          <% if @post.tag_list.size == 0 %>
+            <%= 'No tags' %>
+          <% else %>
+            <%= raw @post.tag_list.map {|tag| link_to tag, tag_path(tag) }.join(', ') %>
+          <% end %><br />
+        </p>
         <div id="posts-body">
           <%= @post.body %>
+        </div>
+
+      <!-- comments -->
+        <div class="comments">
+          <p><h4 id="title-comments">Discuss <i class="fa fa-comments"></i></h4></p>
+          <div class='js-comments'>
+            <%= render @post.comments %>
+          </div>
+          <div class='new-comment'>
+            <%= render 'comments/form', comment: Comment.new, post: @post %>
+          </div>
         </div>
       </div>
 

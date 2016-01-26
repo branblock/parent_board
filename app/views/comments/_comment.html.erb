@@ -1,0 +1,8 @@
+<%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
+  <div class="media">
+    <div class="media-body">
+      <blockquote><%= comment.body %></blockquote>
+      <%= link_to "#{comment.user.username}", user_path(comment.user) %>&nbsp;<%= localize(comment.created_at, :format => :comment_default) %>&nbsp;<%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [comment.post, comment], method: :delete, remote: true, data: {confirm: "Are you sure?"} %>
+    </div>
+  </div>
+<% end %>
