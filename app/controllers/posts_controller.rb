@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.most_recent
+    if params[:tag].present?
+      @tagged_posts = @posts.tagged_with(params[:tag])
+    else
+      @posts
+    end
   end
 
   def show
@@ -51,7 +56,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :tag_list)
   end
 
   def ready_post

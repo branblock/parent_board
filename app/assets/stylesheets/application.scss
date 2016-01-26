@@ -18,23 +18,24 @@
 @import 'bootstrap';
 
 /* GENERAL */
-html, body {
-  color: #000;
-  height: 100%;
-}
 
 body {
   display: table;
   width: 100%;
 }
 
-.page-row {
+html, body {
+  color: #000;
+  height: 100%;
+}
+
+footer {
   background: #e7e7e7;
   display: table-row;
   height: 1px;
 }
 
-.page-row p {
+footer p {
   font-size: 13px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -43,7 +44,13 @@ body {
 .page-row-expanded { height: 100%; }
 
 #title {
+  font-size: 20px;
   padding-top: 20px;
+}
+
+#title-comments {
+  font-size: 16px;
+  padding-top: 10px;
 }
 
 /*
@@ -108,9 +115,19 @@ body {
 }
 
 /* POSTS-SHOW */
+blockquote {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
 #posts-body {
+  border-bottom: 1px solid #e7e7e7;
   border-top: 1px solid #e7e7e7;
-  padding-top: 10px;
+  padding: 10px 0;
+}
+
+#posts-show .row {
+  padding-bottom: 20px;
 }
 
 /* TERMS */

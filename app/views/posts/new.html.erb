@@ -1,20 +1,16 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-6">
       <h4 id="title">Create a New Post</h4>
       <%= simple_form_for [@post] do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>
           <%= f.input :body, as: :text, input_html: { rows: 10 } %>
+          <%= f.input :tag_list, label: "Tags (seperated by commas)", input_html: {value: @post.tag_list.to_s} %>
           <%= f.button :button, "Create Post".html_safe, class: 'btn btn-success', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating..."} %>&nbsp;<%= link_to "Cancel", url_for(@post.user), class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
-
-    <div class="col-md-4">
-      <h4 id="title">Post Guidelines</h4>
-    </div>
-
   </div>
 </div>

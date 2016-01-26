@@ -6,6 +6,13 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  resources :posts, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
+
+
+  get 'tags/:tag', to: 'posts#index', as: :tag
+
   get 'terms/show'
 
   root 'welcome#index'

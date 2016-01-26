@@ -2,21 +2,31 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <h4 id="title">All Posts</h4>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <% @posts.each do |post| %>
-          <p>
-            <%= localize(post.updated_at, :format => :post_default) %>&nbsp;-&nbsp;<%= link_to post.title, post_path(post) %>
-            &nbsp;
-            <%= link_to 'Edit post', edit_post_path(post) %>
-            &nbsp;
-            <%= link_to 'Delete post', post, method: :delete, data: {confirm: "Are you sure?"} %>
-          </p>
+        <!-- tagged posts -->
+        <% if params[:tag].present? %>
+          <%= "These are the posts with the '#{(params[:tag])}' tag" %>.<br /><%= link_to 'See all pages <i class="fa fa-angle-double-right"></i>'.html_safe, posts_path %>
+          <% @tagged_posts.each do |post| %>
+            <p>
+              <%= localize(post.updated_at, :format => :post_default) %>&nbsp;-&nbsp;<%= link_to post.title, post_path(post) %>
+              &nbsp;
+              <%= link_to 'Edit post', edit_post_path(post) %>
+              &nbsp;
+              <%= link_to 'Delete post', post, method: :delete, data: {confirm: "Are you sure?"} %>
+            </p>
+          <% end %>
+        <!-- all posts -->
+        <% else %>
+          <% @posts.each do |post| %>
+            <p><%= localize(post.updated_at, :format => :post_default) %>&nbsp;-&nbsp;<%= link_to post.title, post_path(post) %>
+              &nbsp;
+              <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_post_path(post) %>
+              &nbsp;
+              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, post, method: :delete, data: {confirm: "Are you sure?"} %>
+            </span></p>
+          <% end %>
         <% end %>
       </div>
     </div>
