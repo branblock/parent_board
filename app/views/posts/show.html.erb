@@ -3,20 +3,19 @@
     <div class="row">
 
       <div class="col-md-12">
-        <h4 id="title"><%= @post.title %></h4>
-        <p>by&nbsp;<%= link_to "#{@post.user.username}", user_path(@post.user) %>&nbsp;•&nbsp;Last updated&nbsp;<%= time_ago_in_words(@post.updated_at) %>&nbsp;ago</small></p>
-        <p><i class="fa fa-tags"></i>&nbsp;
-          <% if @post.tag_list.size == 0 %>
-            <%= 'No tags' %>
-          <% else %>
-            <%= raw @post.tag_list.map {|tag| link_to tag, tag_path(tag) }.join(', ') %>
-          <% end %><br />
-        </p>
+        <!-- title -->
+        <h4 id="title"><%= @post.title %></h4></span>
+        <!-- post creation info; bookmark -->
+        <p>by&nbsp;<%= link_to "#{@post.user.username}", user_path(@post.user) %>&nbsp;•&nbsp;<%= time_ago_in_words(@post.updated_at) %>&nbsp;ago&nbsp;•&nbsp;<%= render partial: 'bookmarks/bookmark', locals: { post: @post } %></p>
+        <!-- tags -->
+        <% if @post.tag_list.size > 0 %>
+          <p><i class="fa fa-tags"></i>&nbsp;<%= raw @post.tag_list.map {|tag| link_to tag, tag_path(tag) }.join(', ') %></p>
+        <% end %>
+        <!-- post body -->
         <div id="posts-body">
           <%= @post.body %>
         </div>
-
-      <!-- comments -->
+        <!-- comments -->
         <div class="comments">
           <p><h4 id="title-comments">Discuss <i class="fa fa-comments"></i></h4></p>
           <div class='js-comments'>
