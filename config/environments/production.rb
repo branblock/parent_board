@@ -78,6 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Mailtrap configuration
+  config.action_mailer.default_url_options = { host: 'https://fierce-dawn-42984.herokuapp.com/' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
