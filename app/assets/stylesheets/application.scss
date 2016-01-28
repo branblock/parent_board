@@ -19,8 +19,14 @@
 
 /* GENERAL */
 
-a, a:active, a:focus, a:hover {
+a, a:active, a:focus {
   color: #4078c0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4078c0;
+  text-decoration: underline;
 }
 
 body {
@@ -158,6 +164,10 @@ blockquote {
 }
 
 /* WELCOME-INDEX */
+#welcome h1 {
+  font-weight: 700;
+}
+
 #welcome p {
   font-weight: 400;
 }
